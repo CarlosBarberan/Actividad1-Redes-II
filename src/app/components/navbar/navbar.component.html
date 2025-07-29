@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a routerLink="/" class="brand-link">
+        <span class="brand-icon">💻</span>
+        <span class="brand-text">TechStore</span>
+      </a>
+    </div>
+
+    <div class="nav-menu" [class.active]="isMenuOpen">
+      <a routerLink="/" routerLinkActive="active" class="nav-link">Inicio</a>
+      <a routerLink="/productos" routerLinkActive="active" class="nav-link">Productos</a>
+      <a routerLink="/nosotros" routerLinkActive="active" class="nav-link">Nosotros</a>
+    </div>
+
+    <div class="nav-toggle" (click)="toggleMenu()">
+      <div class="hamburger" [class.active]="isMenuOpen"></div>
+      <div class="hamburger" [class.active]="isMenuOpen"></div>
+      <div class="hamburger" [class.active]="isMenuOpen"></div>
+    </div>
+  </div>
+</nav> 

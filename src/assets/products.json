@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop Gaming Pro",
+      "description": "Potente laptop para gaming con gráficos dedicados y pantalla de alta resolución",
+      "price": 1299.99,
+      "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
+      "category": "Electrónicos",
+      "rating": 4.8,
+      "stock": 15
+    },
+    {
+      "id": 2,
+      "name": "Smartphone Ultra",
+      "description": "Teléfono inteligente con cámara profesional y batería de larga duración",
+      "price": 899.99,
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+      "category": "Electrónicos",
+      "rating": 4.6,
+      "stock": 25
+    },
+    {
+      "id": 3,
+      "name": "Auriculares Wireless",
+      "description": "Auriculares inalámbricos con cancelación de ruido activa",
+      "price": 199.99,
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+      "category": "Audio",
+      "rating": 4.7,
+      "stock": 30
+    },
+    {
+      "id": 4,
+      "name": "Cámara DSLR",
+      "description": "Cámara réflex digital profesional con lente intercambiable",
+      "price": 1499.99,
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop",
+      "category": "Fotografía",
+      "rating": 4.9,
+      "stock": 8
+    },
+    {
+      "id": 5,
+      "name": "Tablet Pro",
+      "description": "Tablet de alta gama con pantalla táctil y lápiz digital",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
+      "category": "Electrónicos",
+      "rating": 4.5,
+      "stock": 20
+    },
+    {
+      "id": 6,
+      "name": "Smartwatch Fitness",
+      "description": "Reloj inteligente con monitor de actividad física y GPS",
+      "price": 299.99,
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+      "category": "Wearables",
+      "rating": 4.4,
+      "stock": 35
+    },
+    {
+      "id": 7,
+      "name": "Altavoz Bluetooth",
+      "description": "Altavoz portátil con sonido envolvente y resistencia al agua",
+      "price": 149.99,
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+      "category": "Audio",
+      "rating": 4.3,
+      "stock": 40
+    },
+    {
+      "id": 8,
+      "name": "Monitor Gaming",
+      "description": "Monitor de alta frecuencia de actualización para gaming competitivo",
+      "price": 449.99,
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+      "category": "Electrónicos",
+      "rating": 4.6,
+      "stock": 12
+    }
+  ]
+} 

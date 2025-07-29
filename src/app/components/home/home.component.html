@@ -1,0 +1,36 @@
+<div class="home-container">
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ title }}</h1>
+      <p class="hero-subtitle">{{ subtitle }}</p>
+      <div class="hero-buttons">
+        <a routerLink="/productos" class="btn btn-primary">Ver Productos</a>
+        <a routerLink="/nosotros" class="btn btn-secondary">Conócenos</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="tech-illustration">💻</div>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">¿Por qué elegirnos?</h2>
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+        <div class="feature-card">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <h2>¿Listo para descubrir?</h2>
+      <p>Explora nuestra amplia gama de productos tecnológicos</p>
+      <a routerLink="/productos" class="btn btn-primary">Explorar Productos</a>
+    </div>
+  </section>
+</div> 
