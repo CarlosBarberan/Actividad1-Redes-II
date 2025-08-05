@@ -14,8 +14,6 @@ import { Product } from '../../models/product.interface';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  categories: string[] = [];
-  selectedCategory: string = 'Todos';
   searchTerm: string = '';
   loading: boolean = true;
   error: string = '';
@@ -32,7 +30,6 @@ export class ProductsComponent implements OnInit {
       next: (data) => {
         this.products = data.products;
         this.filteredProducts = [...this.products];
-        this.categories = ['Todos', ...new Set(this.products.map(p => p.category))];
         this.loading = false;
       },
       error: (error) => {
@@ -43,27 +40,20 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  filterByCategory(category: string): void {
-    this.selectedCategory = category;
-    this.applyFilters();
-  }
-
   onSearchChange(): void {
     this.applyFilters();
   }
 
   clearFilters(): void {
-    this.selectedCategory = 'Todos';
     this.searchTerm = '';
     this.filteredProducts = [...this.products];
   }
 
   applyFilters(): void {
     this.filteredProducts = this.products.filter(product => {
-      const matchesCategory = this.selectedCategory === 'Todos' || product.category === this.selectedCategory;
       const matchesSearch = product.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
                           product.description.toLowerCase().includes(this.searchTerm.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesSearch;
     });
   }
 
