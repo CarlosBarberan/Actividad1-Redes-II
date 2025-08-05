@@ -52,6 +52,12 @@ export class ProductsComponent implements OnInit {
     this.applyFilters();
   }
 
+  clearFilters(): void {
+    this.selectedCategory = 'Todos';
+    this.searchTerm = '';
+    this.filteredProducts = [...this.products];
+  }
+
   applyFilters(): void {
     this.filteredProducts = this.products.filter(product => {
       const matchesCategory = this.selectedCategory === 'Todos' || product.category === this.selectedCategory;

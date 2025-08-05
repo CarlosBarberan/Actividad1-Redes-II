@@ -1,8 +1,8 @@
 <div class="products-container">
   <section class="products-hero">
     <div class="hero-content">
-      <h1>Nuestros Productos</h1>
-      <p>Descubre nuestra amplia gama de productos tecnológicos de alta calidad</p>
+      <h1 class="hero-title">Galería de Productos</h1>
+      <p class="hero-subtitle">Explora nuestra colección de productos tecnológicos de alta calidad</p>
     </div>
   </section>
 
@@ -10,6 +10,7 @@
     <div class="container">
       <div class="filters">
         <div class="search-box">
+          <div class="search-icon">🔍</div>
           <input 
             type="text" 
             placeholder="Buscar productos..." 
@@ -39,48 +40,77 @@
       @if (loading) {
         <div class="loading">
           <div class="spinner"></div>
-          <p>Cargando productos...</p>
+          <p>Cargando galería de productos...</p>
         </div>
       } @else if (error) {
         <div class="error">
+          <div class="error-icon">⚠️</div>
           <p>{{ error }}</p>
           <button (click)="loadProducts()" class="retry-btn">Intentar de nuevo</button>
         </div>
       } @else if (filteredProducts.length === 0) {
         <div class="no-products">
+          <div class="no-products-icon">🔍</div>
           <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+          <button (click)="clearFilters()" class="clear-filters-btn">Limpiar filtros</button>
         </div>
       } @else {
-        <div class="products-grid">
+        <div class="products-gallery">
           @for (product of filteredProducts; track product.id) {
             <div class="product-card">
-              <div class="product-image">
-                <img [src]="product.image" [alt]="product.name" loading="lazy">
+              <div class="product-image-container">
+                <img [src]="product.image" [alt]="product.name" loading="lazy" class="product-image">
                 <div class="product-overlay">
-                  <button class="view-details-btn">Ver Detalles</button>
+                  <div class="overlay-content">
+                    <button class="view-details-btn">Ver Detalles</button>
+                    <div class="quick-info">
+                      <span class="price-badge">{{ formatPrice(product.price) }}</span>
+                      <span class="stock-badge" [class.low-stock]="product.stock < 20">
+                        Stock: {{ product.stock }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-badges">
+                  @if (product.stock < 20) {
+                    <span class="badge low-stock-badge">Pocas unidades</span>
+                  }
+                  @if (product.rating >= 4.5) {
+                    <span class="badge top-rated-badge">⭐ Top Rated</span>
+                  }
                 </div>
               </div>
               
               <div class="product-info">
-                <h3 class="product-name">{{ product.name }}</h3>
-                <p class="product-description">{{ product.description }}</p>
-                
-                <div class="product-rating">
-                  <span class="stars">
-                    @for (star of getStarRating(product.rating); track $index) {
-                      <span class="star">{{ star }}</span>
-                    }
-                  </span>
-                  <span class="rating-text">({{ product.rating }})</span>
+                <div class="product-header">
+                  <h3 class="product-name">{{ product.name }}</h3>
+                  <div class="product-rating">
+                    <span class="stars">
+                      @for (star of getStarRating(product.rating); track $index) {
+                        <span class="star" [class.filled]="star === '★'">{{ star }}</span>
+                      }
+                    </span>
+                    <span class="rating-text">({{ product.rating }})</span>
+                  </div>
                 </div>
+                
+                <p class="product-description">{{ product.description | slice:0:100 }}{{ product.description.length > 100 ? '...' : '' }}</p>
                 
                 <div class="product-meta">
-                  <span class="product-category">{{ product.category }}</span>
-                  <span class="product-stock">Stock: {{ product.stock }}</span>
+                  <span class="product-category">
+                    <span class="category-icon">🏷️</span>
+                    {{ product.category }}
+                  </span>
                 </div>
                 
-                <div class="product-price">
-                  <span class="price">{{ formatPrice(product.price) }}</span>
+                <div class="product-footer">
+                  <div class="product-price">
+                    <span class="price">{{ formatPrice(product.price) }}</span>
+                  </div>
+                  <button class="add-to-cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    Agregar
+                  </button>
                 </div>
               </div>
             </div>
@@ -88,7 +118,12 @@
         </div>
         
         <div class="products-summary">
-          <p>Mostrando {{ filteredProducts.length }} de {{ products.length }} productos</p>
+          <p class="summary-text">
+            Mostrando <strong>{{ filteredProducts.length }}</strong> de <strong>{{ products.length }}</strong> productos
+          </p>
+          @if (filteredProducts.length < products.length) {
+            <button (click)="clearFilters()" class="clear-filters-btn">Ver todos los productos</button>
+          }
         </div>
       }
     </div>
