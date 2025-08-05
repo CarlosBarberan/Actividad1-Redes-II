@@ -10,6 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  title = 'TechStore';
+  title = 'ElectroHub';
   subtitle = 'Tu tienda de tecnología favorita';
 } 
