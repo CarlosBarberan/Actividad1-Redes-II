@@ -1,4 +1,30 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "email": "admin@example.com",
+      "role": "admin",
+      "name": "Administrador"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "password": "user123",
+      "email": "user1@example.com",
+      "role": "user",
+      "name": "Usuario 1"
+    },
+    {
+      "id": 3,
+      "username": "user2",
+      "password": "user456",
+      "email": "user2@example.com",
+      "role": "user",
+      "name": "Usuario 2"
+    }
+  ],
   "products": [
     {
       "id": 1,

@@ -1,0 +1,85 @@
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center py-3">
+          <h3 class="mb-0">
+            <i class="bi bi-person-circle me-2"></i>
+            Iniciar Sesión
+          </h3>
+        </div>
+        
+        <div class="card-body p-4">
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">
+                <i class="bi bi-person me-2"></i>Usuario
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                [(ngModel)]="credentials.username"
+                (input)="clearMessages()"
+                placeholder="Ingrese su usuario"
+                required
+                [class.is-invalid]="errorMessage && !credentials.username"
+              >
+              <div class="invalid-feedback" *ngIf="errorMessage && !credentials.username">
+                El usuario es requerido
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                <i class="bi bi-lock me-2"></i>Contraseña
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="credentials.password"
+                (input)="clearMessages()"
+                placeholder="Ingrese su contraseña"
+                required
+                [class.is-invalid]="errorMessage && !credentials.password"
+              >
+              <div class="invalid-feedback" *ngIf="errorMessage && !credentials.password">
+                La contraseña es requerida
+              </div>
+            </div>
+
+            <div class="d-grid mb-3">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                [disabled]="isLoading"
+              >
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+                <span *ngIf="!isLoading">
+                  <i class="bi bi-box-arrow-in-right me-2"></i>
+                  Iniciar Sesión
+                </span>
+                <span *ngIf="isLoading">Iniciando...</span>
+              </button>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              {{ errorMessage }}
+              <button type="button" class="btn-close" (click)="clearMessages()"></button>
+            </div>
+
+            <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle me-2"></i>
+              {{ successMessage }}
+              <button type="button" class="btn-close" (click)="clearMessages()"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -10,6 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  title = 'ElectroHub';
-  subtitle = 'Tu tienda de tecnología favorita';
+  title = 'ElectroHub - Sistema de Autenticación';
+  subtitle = 'Sistema completo de gestión de usuarios y productos con autenticación segura';
 } 
